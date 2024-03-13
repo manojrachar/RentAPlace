@@ -1,0 +1,6 @@
+package com.user.pojo;
+
+public enum Messages {
+	
+	SUCCESS,FAILURE
+}

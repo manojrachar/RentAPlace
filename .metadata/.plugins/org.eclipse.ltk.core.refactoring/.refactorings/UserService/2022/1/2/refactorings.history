@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 2 elements to &apos;PropertyService/src/main/java/com.property.entity&apos;&#x0D;&#x0A;- Original project: &apos;UserService&apos;&#x0D;&#x0A;- Destination element: &apos;PropertyService/src/main/java/com.property.entity&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     com.user.entity.ResponsePage.java&#x0D;&#x0A;     com.user.entity.Messages.java" description="Copy compilation units" destination="=PropertyService/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.property.entity" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.user.entity{ResponsePage.java" element2="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.user.entity{Messages.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1641286234745" units="2" version="1.0"/>
+</session>

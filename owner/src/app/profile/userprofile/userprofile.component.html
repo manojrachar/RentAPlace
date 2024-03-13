@@ -1,0 +1,36 @@
+<div class="signup-form">
+    <form #registerform='ngForm' (ngSubmit)='update()'>
+      <h2>Profile</h2>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Firstname" required
+        name='userfname' [(ngModel)]='user.userfname'/>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Lastname" required
+        name='userlname' [(ngModel)]='user.userlname'/>
+      </div>
+      <div class="form-group">
+        <input type="email" class="form-control" placeholder="Phone" required
+        name='userphone' [(ngModel)]='user.userphone'/>
+      </div>
+      <div class="form-group">
+        <input type="email" class="form-control" placeholder="Email" required readonly
+        name='useremail' [(ngModel)]='user.useremail' email/>
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" placeholder="Password" required minlength="8"
+        name='password' #pass='ngModel' [(ngModel)]='user.password'/>
+      </div>
+      <div *ngIf='pass.touched'>
+        <div *ngIf='pass.invalid'>
+          <small class='text-danger' *ngIf='pass.errors'>
+            Password is required
+          </small>
+          <small class='text-danger' *ngIf='pass.errors'>
+            Password should be atleast 8 characters
+          </small>
+        </div>
+      </div>
+      <input type="submit" class="btn btn-success btn-block btn-lg" [disabled]='registerform.form.invalid' value="Update">
+    </form>
+  </div>

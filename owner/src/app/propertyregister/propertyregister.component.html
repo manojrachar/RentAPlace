@@ -1,0 +1,104 @@
+<div class="signup-form">
+  <form #hostform='ngForm' (ngSubmit)="saveForm(hostform.value)">
+      <h2>Host</h2>
+      <p class="hint-text">Upload a property details and get best experiance.</p>
+
+      <div class="form-group">
+          <input type="text" class="form-control" placeholder="Property Name" required name='propname' ngModel />
+      </div>
+
+      <div class="form-group">
+          <input type="text" class="form-control" placeholder="Property Location" required name='proplocation'
+              ngModel />
+      </div>
+
+      <div class="form-group">
+          <input type="text" class="form-control" placeholder="Property Type" required name='proptype' ngModel />
+      </div>
+
+      <div class="form-group">
+          <input type="text" class="form-control" placeholder="Property Features" required name='propfeatures'
+              ngModel />
+      </div>
+
+      <div class="form-group">
+          <input type="text" class="form-control" placeholder="Property Size" required name='propsize' ngModel />
+      </div>
+
+      <div class="form-group">
+          <input type="number" class="form-control" placeholder="Property Ratings" required name='ratings' ngModel />
+      </div>
+
+      <div class="form-group">
+          <input type="number" class="form-control" placeholder="Property Price" required name='price' ngModel />
+      </div>
+      <div class="form-group">
+          <input type="file" class="form-control" accept="image/*" name='image1' (change)="onSelectImage1($event)"
+              ngModel>
+      </div>
+
+      <div class="form-group">
+          <input type="file" class="form-control" accept="image/*" name='image2' (change)="onSelectImage2($event)"
+              ngModel>
+      </div>
+
+      <div class="form-group">
+          <input type="file" class="form-control" accept="image/*" name='image3' (change)="onSelectImage3($event)"
+              ngModel>
+      </div>
+      <input type="submit" class="btn btn-success btn-block btn-lg" [disabled]='hostform.form.invalid'
+          value="Register">
+  </form>
+</div>
+
+<!-- <div class="signup-form">
+  <form #registerform='ngForm' (ngSubmit)='register()'>
+    <h2>Add Property</h2>
+    <p class="hint-text">Register your property and get SOLD</p>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Property Name" required
+      name='propname' [(ngModel)]='property.propname'/>
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Property Location" required
+      name='proplocation' [(ngModel)]='property.proplocation'/>
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Property Size" required
+      name='propsize' [(ngModel)]='property.propsize'/>
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Property Features" required
+      name='propfeatures' [(ngModel)]='property.propfeatures' />
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Property Type | Flat | Villa | Appartment" required
+      name='proptype' [(ngModel)]='property.proptype' />
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Image url 1" required
+      name='image1' [(ngModel)]='property.image1' />
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Image url 2" required
+      name='image2' [(ngModel)]='property.image2' />
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Image url 3" required
+      name='image3' [(ngModel)]='property.image3' />
+    </div>
+    <div class="form-group">
+      <input type="number" class="form-control" placeholder="Price" required
+      name='price' [(ngModel)]='property.price' />
+    </div>
+    <div class="form-group">
+      <input type="number" class="form-control" placeholder="Ratings" required
+      name='ratings' [(ngModel)]='property.ratings' />
+    </div>
+    <div class="form-group">
+      <input type="number" class="form-control" placeholder="Owner id" required
+      name='owner.ownerid' [(ngModel)]='property.owner.ownerid' />
+    </div>
+    <input type="submit" class="btn btn-success btn-block btn-lg" [disabled]='registerform.form.invalid' value="Add">
+  </form>
+</div> -->

@@ -1,0 +1,35 @@
+<div class="signup-form">
+    <form #reserveform='ngForm' (ngSubmit)='reserveProperty()'>
+      <h2>Reserve Property</h2>
+      <p class="hint-text">** enjoy your holiday **</p>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="User Name" required
+        name='username' [(ngModel)]="reservedProperty.username"/>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Property Location" required 
+        name='proplocation' [(ngModel)]="reservedProperty.proplocation"/>
+      </div>
+      <div class="form-group">
+        <input type="date" class="form-control" placeholder="Checkin date" required
+        name='checkin' [(ngModel)]="reservedProperty.checkin"/>
+      </div>
+      <div class="form-group">
+        <input type="date" class="form-control" placeholder="Checkout date" required
+        name='checkout' [(ngModel)]="reservedProperty.checkout"/>
+      </div>
+      <div class="form-group">
+        <input type="number" class="form-control" placeholder="Property Price" required
+        name='price' [(ngModel)]="reservedProperty.price"/>
+      </div>
+      <div class="form-group">
+        <input type="number" class="form-control" placeholder="User id" required 
+        name='user.userid' [(ngModel)]="reservedProperty.user.userid" />
+      </div>
+      <div class="form-group">
+        <input type="number" class="form-control" placeholder="Property id" required 
+        name='property.propid' [(ngModel)]="reservedProperty.property.propid"/>
+      </div>
+      <input type="submit" class="btn btn-success btn-block btn-lg" [disabled]='reserveform.form.invalid' value="Reserve">
+    </form>
+  </div>

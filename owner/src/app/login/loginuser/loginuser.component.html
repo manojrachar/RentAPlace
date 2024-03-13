@@ -1,0 +1,37 @@
+<div class="login-form">
+    <form #userform='ngForm' (ngSubmit)='login(userform.value)'>
+      <div class="avatar"><i class="material-icons">&#xE7FF;</i></div>
+      <h4 class="modal-title">User Login</h4>
+      <div *ngIf='isError'>
+        <p style="color: red; text-align: center; font-size:medium;">{{errMessage}}</p>
+      </div>
+      <div class="form-group">
+        <input type="email" name='email' class="form-control" placeholder="Enter Email" required="required" ngModel email
+          #title='ngModel' />
+      </div>
+      <div *ngIf='title.touched'>
+        <div *ngIf='title.invalid'>
+          <small class='text-danger' *ngIf='title.errors'>
+            Email is required
+          </small>
+        </div>
+        <br>
+      </div>
+      <div class="form-group">
+        <input type="password" name='password' class="form-control" placeholder="Enter Password" ngModel required
+          #pass='ngModel'/>
+      </div>
+      <div *ngIf='pass.touched'>
+        <div *ngIf='pass.invalid'>
+          <small class='text-danger' *ngIf='pass.errors'>
+            Password is required
+          </small>
+          <small class='text-danger' *ngIf='pass.errors'>
+            Password should be atleast 8 characters
+          </small>
+        </div>
+      </div>
+      <br>
+  <input type="submit" class="btn btn-primary btn-block btn-lg" [disabled]='userform.form.invalid' value="Login">
+  </form>
+  </div>

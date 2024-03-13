@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row">
+      <div class="row" *ngFor='let prop of properties | filter:searchText '>
+        <div class="content">
+          <img src={{baseurl}}{{prop.image1}} alt="image1">
+          <img src={{baseurl}}{{prop.image2}} alt="image2">
+          <img src={{baseurl}}{{prop.image3}} alt="image3">
+          <h2>{{prop.propname | uppercase}}</h2>
+          <h5>Location: {{prop.proplocation | titlecase}}, <span class="glyphicon glyphicon-star"
+              style="color: rgb(255, 0, 0);"></span> Ratings: {{prop.ratings}}</h5>
+          <p>{{prop.proptype | titlecase}}, {{prop.propfeatures | titlecase}}</p>
+          <h4><span class="glyphicon glyphicon-user"></span> Contact: {{prop.owner.ownerfname}}, {{prop.owner.ownerphone}}
+          </h4>
+          <div class="right">
+            <a (click)="reserve(prop.propid)" class="btn btn-primary">
+              <span class="glyphicon glyphicon-home"></span> Reserve
+            </a>
+          </div>
+          <br>
+        </div>
+      </div>
+    </div>
+  </div>

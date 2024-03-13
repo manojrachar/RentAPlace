@@ -1,0 +1,23 @@
+<h3>Reserved Properties</h3>
+<div class="container">
+    <div class="row" >
+        <div class="row" *ngFor='let prop of properties'>
+          <div class="content" >
+            <img src={{baseurl}}{{prop.property.image1}} alt="image1">
+            <img src={{baseurl}}{{prop.property.image2}} alt="image2">
+            <img src={{baseurl}}{{prop.property.image3}} alt="image3">
+            <div style="padding-left: 20px;">
+              <h2>{{prop.property.propname | uppercase}}</h2>
+              <h4>Location: {{prop.property.proplocation | titlecase}}, <span class="glyphicon glyphicon-star" style="color: gold;"></span> Ratings: {{prop.property.ratings}}</h4>
+              <h4>{{prop.property.proptype | titlecase}}, {{prop.property.propfeatures | titlecase}}, {{prop.property.propsize}}</h4>
+              <h4><span class="glyphicon glyphicon-user"></span> Contact: {{prop.property.owner.ownerfname}}, {{prop.property.owner.ownerphone}}</h4>
+              <h4>Checkin : {{prop.checkin | date}} , Checkout : {{prop.checkout | date}}</h4>
+              <h4 style='font-weight : bold;'>{{prop.property.price | currency:'INR'}}</h4>
+            </div>
+            <div class="right">
+            </div>
+            <br>
+          </div>
+        </div>
+      </div>
+    </div>

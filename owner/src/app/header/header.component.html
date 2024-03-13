@@ -1,0 +1,50 @@
+<div class="navbar">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" routerLink="/home" style="color: rgb(224,17,95);"><i class="fab fa-airbnb"></i> RentAPlace</a>
+      </div>
+      <form class="navbar-form navbar-left" #searchform='ngForm' (ngSubmit)='searchText(searchform.value)'>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="searchname" [(ngModel)]="search">
+        </div>
+        <button type="submit" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-search"></span> Search
+        </button>
+      </form>
+      <div class="navbar-header">
+        <a class="navbar-brand" routerLink="/userproperty" > Properties</a>
+      </div>
+      <ul class="nav navbar-nav navbar-right" *ngIf="!ownerLoggedin() && !userLoggedin()">
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-log-in"></span> Login
+            <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a routerLink="/loginuser">User</a></li>
+            <li><a routerLink="/loginowner">Owner</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#"> <span class="glyphicon glyphicon-user"></span> Register
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a routerLink="/registeruser">User</a></li>
+            <li><a routerLink="/registerowner">Owner</a></li>          
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right" *ngIf="ownerLoggedin()">
+        <li><a routerLink="/ownerproperty"><span class="glyphicon glyphicon-list-alt"></span> Property list</a></li>
+        <li><a routerLink="/propertyregister"><span class="glyphicon glyphicon-home"></span> Add Property</a></li>
+        <li><a routerLink="/ownerprofile"><span class="glyphicon glyphicon-user"></span> Owner Profile</a></li>
+        <li><a (click)="logout()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>  
+      </ul>
+      <ul class="nav navbar-nav navbar-right" *ngIf="userLoggedin()">
+        <li><a routerLink="/userproperty"><span class="glyphicon glyphicon-list-alt"></span> Reserve Property</a></li>
+        <li><a routerLink="/propertiesreserved"><span class="glyphicon glyphicon-list-alt"></span> Reserved</a></li>
+        <li><a routerLink="/userprofile"><span class="glyphicon glyphicon-user"></span> User Profile</a></li>
+        <li><a (click)="logout()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>  
+      </ul>
+    </div>
+  </nav>
+</div>

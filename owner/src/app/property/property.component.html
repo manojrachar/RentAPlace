@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row" >
+      <div class="row" *ngFor='let prop of properties | filter:searchText '>
+        <div class="content" >
+          <img src={{baseurl}}{{prop.image1}} alt="image1">
+          <img src={{baseurl}}{{prop.image2}} alt="image2">
+          <img src={{baseurl}}{{prop.image3}} alt="image3">
+          <div style="padding-left: 20px;">
+            <h2>{{prop.propname | uppercase}}</h2>
+            <h4>Location: {{prop.proplocation | titlecase}}, <span class="glyphicon glyphicon-star" style="color: gold;"></span> Ratings: {{prop.ratings}}</h4>
+            <h4>{{prop.proptype | titlecase}}, {{prop.propfeatures | titlecase}}, {{prop.propsize}}</h4>
+            <h4><span class="glyphicon glyphicon-user"></span> Contact: {{prop.owner.ownerfname}}, {{prop.owner.ownerphone}}</h4>
+            <h4 style='font-weight : bold;'>{{prop.price | currency:'INR'}}</h4>
+          </div>
+          <div class="right">
+          <a *ngIf="userLoggedin()" (click)="update(prop.propid)" class="btn btn-primary">
+            <span class="glyphicon glyphicon-edit"></span> Update
+          </a>
+          <a *ngIf="userLoggedin()" (click)="delete(prop.propid)" class="btn btn-danger">
+            <span class="glyphicon glyphicon-trash"></span> Delete
+          </a>
+          </div>
+          <br>
+        </div>
+      </div>
+    </div>
+  </div>

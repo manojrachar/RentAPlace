@@ -1,0 +1,80 @@
+package com.property.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.property.entity.Messages;
+import com.property.entity.Property;
+import com.property.entity.ResponsePage;
+import com.property.service.PropertyService;
+
+@RestController
+@RequestMapping("/propertyservice")
+@CrossOrigin("http://localhost:4200/")
+public class PropertyController {
+	
+	@Autowired
+	private PropertyService propertyService;
+	
+	@GetMapping("/property/{propid}")
+	public Property getProperty(@PathVariable int propid) {
+		return this.propertyService.getProperty(propid);
+	}
+	
+	@GetMapping("/properties/{owner_ownerid}")
+	public List<Property> propertiesByOwner(@PathVariable(required = true) int owner_ownerid){
+		return this.propertyService.getAllPropertiesByOwnerId(owner_ownerid);
+	}
+	
+	@GetMapping("/properties")
+	public ResponseEntity<?>  propertyList() {
+		List<Property> properties = propertyService.getAllProperties();
+		return new ResponseEntity<>(properties,HttpStatus.OK); 
+	}
+
+	@PostMapping("/property")
+	public ResponseEntity<HttpStatus> addProperty(@RequestBody Property property){
+		System.out.println(property);
+		if(propertyService.addProperty(property)) {
+			return new ResponseEntity<HttpStatus>(HttpStatus.OK);
+		}
+		else {
+			return new ResponseEntity<HttpStatus>(HttpStatus.EXPECTATION_FAILED);
+			
+		}
+		
+	}
+	
+	@PutMapping("/property")
+	public ResponseEntity<?> updateProperty(@RequestBody Property property) {
+		System.out.println(property);
+		if(this.propertyService.updateProperty(property)) {
+			return ResponseEntity.ok().body(new ResponsePage(Messages.SUCCESS,"Property deleted"));
+		}
+		else {
+			return ResponseEntity.badRequest().body(new ResponsePage(Messages.FAILURE,"Login Failed"));
+		}
+	}
+	
+	@DeleteMapping("/property/{property_id}")
+	public Boolean deleteProperty(@PathVariable int property_id) {
+		if(this.propertyService.deleteProperty(property_id)) {
+			return Boolean.TRUE;
+		}
+		else {
+			return Boolean.FALSE;
+		}
+	}
+}

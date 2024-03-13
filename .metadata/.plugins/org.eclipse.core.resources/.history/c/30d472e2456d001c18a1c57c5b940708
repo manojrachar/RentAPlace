@@ -1,0 +1,27 @@
+package com.property.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity //To create table in database
+public class Owner {
+	
+	@Id //To make the field as primary key
+	@GeneratedValue(strategy=GenerationType.IDENTITY) //Auto Increment id in database
+	private int ownerid;  //Database field entities
+	private String ownerfname;
+	private String ownerlname;
+	private String ownerlocation;
+	private String ownerphone;
+	private String owneremail;
+	private String password;
+	
+	public Owner() { //Default constructor
+		
+	}
+	
+	
+
+}
